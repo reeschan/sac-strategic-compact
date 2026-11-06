@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/reeschan/sac-strategic-compact/schemas/run-outcome.schema.json",
+  "title": "Kiln harness run outcome",
+  "type": "object",
+  "required": ["v", "run_id", "experiment", "cell", "task_id", "rep", "regime", "passed"],
+  "properties": {
+    "v": { "const": 1 },
+    "run_id": { "type": "string" },
+    "experiment": { "type": "string" },
+    "cell": { "type": "string" },
+    "task_id": { "type": "string" },
+    "rep": { "type": "integer", "minimum": 1 },
+    "regime": { "enum": ["FHA", "EoCC", "SAC"] },
+    "model": { "type": ["string", "null"] },
+    "passed": { "type": "boolean" },
+    "score": { "type": ["number", "null"] },
+    "input_tokens": { "type": ["integer", "null"] },
+    "output_tokens": { "type": ["integer", "null"] },
+    "wall_ms": { "type": ["integer", "null"] },
+    "peak_context": { "type": ["integer", "null"] },
+    "compact_actions": { "type": ["integer", "null"] },
+    "notes": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

@@ -29,3 +29,7 @@ Report medians and max peak context the way the paper does (median / max).
 - [ ] `run_id` shared between compact log and outcome log
 - [ ] Write `outcome` back onto compact events or keep a separate `runs.jsonl`
 - [ ] At least one A/B cell: FHA vs EoCC at kiln soft/peak defaults
+
+## Harness A/B
+
+Concrete cells, task set, and join fields: [harness-ab.md](harness-ab.md).
