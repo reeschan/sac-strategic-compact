@@ -26,13 +26,10 @@ Pair every treatment run with a control run on the **same task_id**, same model,
 
 ## Task set (v0)
 
+Concrete ids and smoke order: [task-set-v0.md](task-set-v0.md).
+
 Start small; expand after the join pipeline works.
 
-1. **Long-horizon SE** (at least 5 tasks): multi-step repo fixes with verify commands (Atelier PBI-shaped or SWE-bench-lite subset).
-2. **Long-input** (at least 3 tasks): answer from a large doc/tree via selective read, not full paste.
-3. Hold out topic-shift and coin-toss-style “need full history” traps until cell 1–2 are green.
-
-Repetitions: `rep` = 1..3 per task × cell when variance matters; otherwise 1 for smoke.
 
 ## What each run must write
 
