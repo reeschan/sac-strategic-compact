@@ -1,0 +1,22 @@
+{
+  "kiln": {
+    "designer_peak": 48000,
+    "designer_soft": 36000,
+    "implementer_peak": 24000,
+    "implementer_soft": 18000,
+    "handoff_at": 250000,
+    "aux_compress_at": 150000
+  },
+  "log": {
+    "path": ".kiln/compact-events.jsonl",
+    "require_run_id": true
+  },
+  "phases": {
+    "research": { "role": "designer", "compact_after": true },
+    "plan": { "role": "designer", "compact_after": true },
+    "approve": { "role": "designer", "compact_after": false },
+    "build": { "role": "implementer", "compact_mid": false, "fresh_per_attempt": true },
+    "verify": { "role": "designer", "compact_after": true },
+    "review": { "role": "designer", "compact_after": true }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/reeschan/sac-strategic-compact/schemas/compact-event.schema.json",
+  "title": "Kiln compact event",
+  "type": "object",
+  "required": ["v", "event", "ts", "run_id", "regime", "boundary", "role", "action", "tokens_before"],
+  "properties": {
+    "v": { "const": 1 },
+    "event": { "const": "compact" },
+    "ts": { "type": "string", "format": "date-time" },
+    "run_id": { "type": "string", "minLength": 1 },
+    "host": { "type": "string", "description": "claude-code | codex | opencode | other" },
+    "regime": { "enum": ["FHA", "EoCC", "SAC"] },
+    "boundary": {
+      "enum": ["phase", "wave", "soft", "forced", "failed_approach", "topic_shift", "manual"]
+    },
+    "role": { "enum": ["designer", "implementer"] },
+    "phase": { "type": ["string", "null"] },
+    "tokens_before": { "type": "integer", "minimum": 0 },
+    "tokens_after": { "type": ["integer", "null"], "minimum": 0 },
+    "peak_budget": { "type": ["integer", "null"] },
+    "soft_budget": { "type": ["integer", "null"] },
+    "action": {
+      "enum": ["noop", "suggest", "compact", "handoff", "aux_on", "fork"]
+    },
+    "state_path": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] },
+    "task_id": { "type": ["string", "null"], "description": "Harness joins outcome later" },
+    "outcome": {
+      "type": ["object", "null"],
+      "description": "Filled by harness after the run, not by the skill at compact time",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "score": { "type": "number" },
+        "input_tokens": { "type": "integer" },
+        "output_tokens": { "type": "integer" },
+        "wall_ms": { "type": "integer" }
+      }
+    }
+  },
+  "additionalProperties": false
+}
